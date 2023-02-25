@@ -33,7 +33,8 @@ const CreatePost = () => {
       try {
         setGeneratingImg(true);
         const response = await fetch(
-          `process.env.BACKEND_API_URL${dalle} | http://localhost:8000/${dalle}`,
+          `import.meta.env.VITE_BACKEND_API_URL${dalle} || http://localhost:8000/${dalle}`,
+          console.log(`import.meta.env.VITE_BACKEND_API_URL${dalle}`),
           {
             method: "POST",
             headers: {
@@ -63,7 +64,7 @@ const CreatePost = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `process.env.BACKEND_API_URL${post} | http://localhost:8000/${post}`,
+          `import.meta.env.VITE_BACKEND_API_URL${post} || http://localhost:8000/${post}`,
           {
             method: "POST",
             headers: {
